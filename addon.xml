@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.flow" version="1.0.0rc" name="Personal Flow" provider-name="mariano-git">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="script.module.requests" version="2.25.1+matrix.1"/>
+        <import addon="pvr.iptvsimple" optional="true"/>
+        <import addon="inputstream.adaptive" optional="true"/>
+        <import addon="script.module.inputstreamhelper" optional="true"/>
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="login"/>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en_gb">Personal Flow Live TV</summary>
+        <description lang="en_gb">Watch Personal Flow on Kodi</description>
+        <disclaimer lang="en_gb">This add-on is experimental and may not be legal.</disclaimer>
+        <summary lang="es_es">Personal Flow Live TV</summary>
+        <description lang="es_es">Mira Personal Flow en Kodi</description>
+        <disclaimer lang="es_es">Este componente es experimental y podria no ser legal.</disclaimer>
+        <assets>
+            <icon>resources/media/icon.png</icon>
+        </assets>
+        <platform>all</platform>
+        <license>MIT</license>
+        <website>https://github.com/mariano-git/plugin.video.flow</website>
+        <source>https://github.com/mariano-git/plugin.video.flow</source>
+        <news>
+            v1.0.0 (2021-11-01)
+            -First Version
+        </news>
+    </extension>
+</addon>

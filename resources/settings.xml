@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category label="General">
+        <setting label="Flow authentication" type="lsep"/>
+
+        <setting id="username" type="text" default="" label="Username"/>
+        <setting id="password" type="text" option="hidden" enable="!eq(-1,)" default="" label="Password"/>
+        <setting id="baseUrl" type="text" default="https://web.flow.com.ar" label="Base Url"/>
+
+        <setting id="configured" type="bool" default="false" visible="true" label="configured"/>
+
+        <setting id="clientCasId" type="text" default="" visible="true" label="clientCasId"/>
+
+        <setting id="jwt" type="text" default="" visible="false" label="jwt"/>
+        <setting id="lastJwt" type="text" default="" visible="false" label="lastJwt"/>
+        <setting id="jwtThreshold" type="number" default="60" visible="true" label="Refrescar JWT cada (minutos)"/>
+
+        <setting id="prm" type="text" default="" visible="false" label="prm"/>
+        <setting id="lastPrm" type="text" default="" visible="false" label="lastPrm"/>
+        <setting id="prmThreshold" type="number" default="60" visible="true" label="Refrescar PRM cada (minutos)"/>
+
+        <setting id="multiRightVuid" type="text" default="" visible="false" label="multiRightVuid"/>
+
+        <setting id="lastEpg" type="text" default="0" visible="false" label="lastEpg"/>
+        <setting id="epgThreshold" type="number" default="10" visible="true" label="Refrescar EPG cada (horas)"/>
+
+        <setting id="cacheToken" type="text" default="" visible="false" label="cacheToken"/>
+
+        <setting id="action_configure_epg" type="action" label="Configura PVR IPTVSimple automaticamente"
+                 action="RunPlugin(plugin://plugin.video.flow/configureIPTV?now)"/>
+        <setting id="action_rebuild_epg" type="action" label="Rebuild EPG data"
+                 action="RunPlugin(plugin://plugin.video.flow/rebuildEpg?now)"/>
+        <!--
+        <setting id="action_clear" type="action" label="Clear authorization token"
+                 action="RunPlugin(plugin://plugin.video.flow/purgeTokens?now)"/>
+        -->
+
+    </category>
+</settings>
