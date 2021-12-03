@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.flow" version="1.0.0rc" name="Personal Flow" provider-name="mariano-git">
+<addon id="plugin.video.flow" version="1.0.1rc" name="Personal Flow" provider-name="mariano-git">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests" version="2.25.1+matrix.1"/>
@@ -26,8 +26,9 @@
         <website>https://github.com/mariano-git/plugin.video.flow</website>
         <source>https://github.com/mariano-git/plugin.video.flow</source>
         <news>
-            v1.0.0 (2021-11-01)
-            -First Version
+            v1.0.1rc (2021-12-03)
+            - Fix images issue
+            - Remove logging
         </news>
     </extension>
 </addon>
