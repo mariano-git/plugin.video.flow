@@ -1,5 +1,6 @@
 import urllib
 from typing import List
+from urllib.parse import urlparse
 from xml.etree import ElementTree
 
 from ext.piggy_rs import WebResourceFactory
@@ -89,9 +90,9 @@ class Program:
             # elif image.usage == 'BROWSE' and not self.programId:
             if image.usage == 'BROWSE':
                 # 'http://geo.mnedge.cvattv.com.ar:9001/images/3646x20211127x0300/BROWSE
-                server = image.prefix.replace('http://geo.mnedge.cvattv.com.ar:9001', 'https://static.flow.com.ar')
-                return '{server}/{height}/{width}/0/0/{suffix}.{format}' \
-                    .format(server=server, usage=image.usage, height=350, width=500, suffix=image.suffix,
+                path = urlparse(image.prefix).path
+                return 'https://static.flow.com.ar/{path}/{height}/{width}/0/0/{suffix}.{format}' \
+                    .format(path=path, usage=image.usage, height=350, width=500, suffix=image.suffix,
                             format=image.format)
 
     def toM3U(self):
@@ -339,8 +340,6 @@ class ApiDriver:
         lastEpg = getLastEpg()
         lastEpgDelta: int = timeUtils.currentMillis() - lastEpg
         threshold = getEpgThreshold()
-        Logger.log(
-            f"Last EPG: {lastEpg} delta: {lastEpgDelta} EPG Threshold: {threshold} need to run?: {lastEpgDelta > threshold}")
         return lastEpgDelta > threshold
 
     def getChannels(self):

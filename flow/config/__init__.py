@@ -63,12 +63,10 @@ def getSetting(key: str, default: str = None):
     value = AddOnSettings.getSetting(key)
     if isBlank(value):
         value = default
-    Logger.debug(f"getSetting key: {key} value:{value} default:{default}")
     return value
 
 
 def setSetting(key: str, value: str):
-    Logger.debug(f"setSetting key: {key} value:{value}")
     return AddOnSettings.setSetting(id=key, value=value)
 
 
@@ -76,12 +74,10 @@ def isSettingEnabled(key: str, default: bool):
     value = AddOnSettings.getSettingBool(key)
     if isBlank(value):
         value = default
-    Logger.debug(f"isSettingEnabled key: {key} value:{value} default:{default}")
     return value
 
 
 def setSettingEnabled(key: str, value: bool):
-    Logger.debug(f"setSettingEnabled key: {key} value:{value}")
     return AddOnSettings.setSettingBool(id=key, value=value)
 
 
@@ -118,8 +114,6 @@ def getJwt():
     lastJwt = getLastJwt()
     lastJwtDelta: int = timeUtils.currentMillis() - lastJwt
     threshold = getJwtThreshold()
-    Logger.debug(
-        f"Last JWT: {lastJwt} delta: {lastJwtDelta} JWT Threshold: {threshold} need to Refresh?: {lastJwtDelta > threshold}")
     if lastJwtDelta > threshold:
         return None
     return getSetting(SETTING_JWT, SETTING_INVALID)
@@ -137,7 +131,6 @@ def setPrm(prm: str):
     timeUtils: TimeUtils = TimeUtils()
     setSetting(SETTING_PRM, prm)
     now = timeUtils.currentMillis()
-    Logger.debug(f"Saving last prm timestamp {now}")
     setSetting(SETTING_LAST_PRM, str(now))
 
 
@@ -146,8 +139,6 @@ def getPrm():
     lastPrm = getLastPrm()
     lastPrmDelta: int = timeUtils.currentMillis() - lastPrm
     threshold = getPrmThreshold()
-    Logger.debug(
-        f"Last PRM: {lastPrm} delta: {lastPrmDelta} PRM Threshold: {threshold} need to Refresh?: {lastPrmDelta > threshold}")
     if lastPrmDelta > threshold:
         return None
     return getSetting(SETTING_PRM, SETTING_INVALID)
@@ -193,12 +184,10 @@ def getEpgThreshold():
 def touchEpg():
     timeUtils: TimeUtils = TimeUtils()
     now = timeUtils.currentMillis()
-    Logger.debug(f"Saving last epg timestamp {now}")
     setSetting(SETTING_LAST_EPG, str(now))
 
 
 def clearEpg():
-    Logger.debug(f"Saving last epg timestamp {0}")
     setSetting(SETTING_LAST_EPG, str(0))
 
 

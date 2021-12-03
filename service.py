@@ -147,8 +147,6 @@ if __name__ == "__main__":
 
     while not monitor.abortRequested():
         currentStep = currentStep.invoke()
-        Logger.debug(f"Current step: {type(currentStep)} wait:{currentStep.wait()} ...")
-
         if monitor.waitForAbort(currentStep.wait()):
             Logger.log("Exiting Service...")
             break
