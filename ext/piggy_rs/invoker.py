@@ -5,9 +5,9 @@ import requests as requests
 
 from ext.util import ModelHelper, isBlank
 from ext.util.logger import Logger
-from ext.ws.rs import NotAuthorizedException
+from ext.ws.rs import NotAuthorizedException, NotFoundException
 from ext.ws.rs.client import Client, ClientRequestContext, ClientResponseContext
-from ext.ws.rs.core import MediaType, Response
+from ext.ws.rs.core import MediaType, Response, Status
 from ext.ws.rs.ext import ApiModel, RuntimeDelegate
 
 
@@ -121,8 +121,12 @@ class PiggyInvoker:
 
         response = cause.response
         rsResponse: Response = Response(response)
-        if response.status_code >= 401 or response.status_code <= 403:
-            raise NotAuthorizedException(message="Not Authorized", cause=cause, response=rsResponse)
+        status: Status = Status.fromCode(response.status_code)
+        Logger.log_error(f"{cause} \n {status}")
+        if status == Status.NOT_FOUND:
+            raise NotFoundException(message=status.name, cause=cause, response=rsResponse)
+        if status in [Status.UNAUTHORIZED, Status.PAYMENT_REQUIRED, Status.FORBIDDEN]:
+            raise NotAuthorizedException(message=status.name, cause=cause, response=rsResponse)
 
     def execute(self, api, call, kwargs):
 

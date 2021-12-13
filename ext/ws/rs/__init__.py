@@ -83,3 +83,8 @@ class ClientErrorException(WebApplicationException):
 class NotAuthorizedException(ClientErrorException):
     def __init__(self, message: str, cause: Exception = None, response: Response = None):
         super().__init__(message, cause, response)
+
+
+class NotFoundException(ClientErrorException):
+    def __init__(self, message: str, cause: Exception = None, response: Response = None):
+        super().__init__(message, cause, response)

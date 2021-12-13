@@ -6,6 +6,7 @@ import xbmcgui
 import xbmcplugin
 
 from ext.util.logger import Logger
+from ext.ws.rs import NotFoundException
 from flow.api.prm import ContentSourceResponse
 from flow.client.flow_client import ApiDriver
 from flow.config import getMultiRightVuid, clearEpg
@@ -40,7 +41,15 @@ def getMPD(arguments: dict):
 
 # https://github.com/xbmc/inputstream.adaptive/wiki/Integration
 def play(arguments):
-    mpd = getMPD(arguments)
+    mpd = ''
+    try:
+        mpd = getMPD(arguments)
+    except NotFoundException as notFound:
+        d = xbmcgui.Dialog()
+        msg = "Este programa no esta disponible"
+        d.ok("No Encontrado...", msg)
+        exit(0)
+
     handle: int = int(arguments['handle'])
     headers = 'Content-Type=&User-Agent=Mozilla/5.0 (X11; Linux x86_64) ' \
               'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36' \

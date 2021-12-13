@@ -26,9 +26,8 @@
         <website>https://github.com/mariano-git/plugin.video.flow</website>
         <source>https://github.com/mariano-git/plugin.video.flow</source>
         <news>
-            v1.0.1rc (2021-12-03)
-            - Fix images issue
-            - Remove logging
+            v1.0.2rc (2021-12-03)
+            - Improve ws.rs
         </news>
     </extension>
 </addon>
