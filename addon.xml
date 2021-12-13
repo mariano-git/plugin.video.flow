@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.flow" version="1.0.1rc" name="Personal Flow" provider-name="mariano-git">
+<addon id="plugin.video.flow" version="1.0.2rc" name="Personal Flow" provider-name="mariano-git">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests" version="2.25.1+matrix.1"/>
