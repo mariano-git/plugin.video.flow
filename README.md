@@ -25,6 +25,8 @@ Las marcas "Personal", "Flow" o "Personal Flow" son propiedad de "Telecom Argent
 **Este addon es altamente experimental e implementa un porting de prueba de JAX-RS a Python**
 https://projects.eclipse.org/projects/ee4j.jaxrs
 
+**SOLO FUNCIONA CON KODI MATRIX (19)**
+
 ## Supported features / Funciones Soportadas
 
 - Timeline in TV section
@@ -65,4 +67,10 @@ Y por supuesto, necesitaras una subcripcion con Flow o Personal Flow.
 
 #### Quick download links
 
-TODO
+Instalar usando el repositorio que ademas instalara los updates:
+Install add-on via repository - provide automatic installation of updates:
+
+https://github.com/mariano-git/repository.mariano-git/blob/matrix/repository.mariano-git-1.0.0.zip
+
+https://kodi.wiki/view/Archive:Install_add-ons_from_zip_files#:~:text=Install%20from%20zip%20file%20allows,at%20the%20time%20of%20installation.
+
