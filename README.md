@@ -56,9 +56,9 @@ pero no siempre es asi.
 
 Puedes bajarlo manualmente desde:
 
-`
-https://dl.google.com/widevine-cdm/4.10.2391.0-linux-x64.zip
-https://dl.google.com/widevine-cdm/4.10.2391.0-linux-ia32.zip
+para 64bits https://dl.google.com/widevine-cdm/4.10.2557.0.0-linux-x64.zip
+
+para 32bits https://dl.google.com/widevine-cdm/4.10.2557.0.0-linux-ia32.zip
 `
 
 No bajes de sitios desconocidos, o bien utiliza el plugin de Kodi que lo instala automaticamente 
