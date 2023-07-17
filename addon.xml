@@ -28,6 +28,8 @@
         <website>https://github.com/mariano-git/plugin.video.flow</website>
         <source>https://github.com/mariano-git/plugin.video.flow</source>
         <news>
+            V1.5.1
+                - Minor fixes
             V1.5.0 (2023-01)
             - Fix DRM negotiation
             - Directory integration

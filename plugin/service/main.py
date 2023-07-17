@@ -33,17 +33,6 @@ class Service:
 
         # evaluateJwtExpiration = Orchestrator.of(EvaluateJwtExpiration).onSuccess(DoLogin).onCrash(wipeData)
 
-        '''
-        checkEpg = Orchestrator.of(CheckEpg).onSuccess(checkVOD).orElse(
-            Orchestrator.of(LoadChannels).onSuccess(
-                Orchestrator.of(PullPrograms).onSuccess(
-                    Orchestrator.of(PullRadios).onSuccess(
-                        Orchestrator.of(BuildEpg)
-                    ).onCrash(evaluateJwtExpiration)
-                ).onCrash(evaluateJwtExpiration)
-            ).onCrash(evaluateJwtExpiration)
-        )
-        '''
         login = Orchestrator.of(DoLogin).onCrash(wipeData)
 
         checkEpg = Orchestrator.of(TVScheduleCurrent).onSuccess(checkDirectory).orElse(
