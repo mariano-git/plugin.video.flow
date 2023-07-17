@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.flow" version="1.0.2rc" name="Personal Flow" provider-name="mariano-git">
+<addon id="plugin.video.flow" version="1.5.1" name="Personal Flow" provider-name="Mariano Marcolongo (mariano-git)">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
-        <import addon="script.module.requests" version="2.25.1+matrix.1"/>
-        <import addon="pvr.iptvsimple" optional="true"/>
-        <import addon="inputstream.adaptive" optional="true"/>
-        <import addon="script.module.inputstreamhelper" optional="true"/>
+        <import addon="pvr.iptvsimple"/>
+        <import addon="inputstream.adaptive"/>
+        <import addon="script.module.inputstreamhelper"/>
+        <import addon="script.module.piggy.base" version="1.0.0"/>
+        <import addon="script.module.piggy.ws" version="1.0.0"/>
+        <import addon="script.module.piggy.restful" version="1.0.0"/>
     </requires>
     <extension point="xbmc.python.pluginsource" library="addon.py">
         <provides>video</provides>
     </extension>
-    <extension point="xbmc.service" library="service.py" start="login"/>
+    <extension point="xbmc.service" library="service.py"/>
     <extension point="xbmc.addon.metadata">
         <summary lang="en_gb">Personal Flow Live TV</summary>
         <description lang="en_gb">Watch Personal Flow on Kodi</description>
@@ -26,6 +28,15 @@
         <website>https://github.com/mariano-git/plugin.video.flow</website>
         <source>https://github.com/mariano-git/plugin.video.flow</source>
         <news>
+            V1.5.0 (2023-01)
+            - Fix DRM negotiation
+            - Directory integration
+            - Stages integration
+            - New configuration
+            - Full WS integration
+            v1.0.3rc (2022-10-23)
+            - Radio first integration
+            - Refactorization
             v1.0.2rc (2021-12-03)
             - Improve ws.rs
         </news>

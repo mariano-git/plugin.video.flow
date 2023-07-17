@@ -1,0 +1,640 @@
+# plugin.video.flow language file
+msgid ""
+msgstr ""
+"Project-Id-Version: plugin.video.flow\n"
+"Report-Msgid-Bugs-To: https://github.com/mariano-git/plugin.video.flow\n"
+"POT-Creation-Date: 2022-11-18 16:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: mariano-git <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+### unit.days
+msgctxt "#30001"
+msgid "{} Days"
+msgstr "{} Dias"
+
+### unit.hours
+msgctxt "#30002"
+msgid "{} Hours"
+msgstr "{} Horas"
+
+### unit.millis
+msgctxt "#30003"
+msgid "{} Milliseconds"
+msgstr "{} Milisegundos"
+
+### access.label
+msgctxt "#30004"
+msgid "Access"
+msgstr "Acceso"
+
+### access.help
+msgctxt "#30005"
+msgid "User Configuration (name, password, etc)"
+msgstr "Configuraciones del Usuario (nombre, clave. etc.)"
+
+### access.user.label
+msgctxt "#30006"
+msgid "Login"
+msgstr "Acceso"
+
+### access.user.name.label
+msgctxt "#30007"
+msgid "Mail or Phone Number"
+msgstr "Mail o número de teléfono"
+
+### access.user.name.help
+msgctxt "#30008"
+msgid "If you are a Flow or Telecom customer, you can login with your email. "example@mail.com". If you have a Personal mobile phone, you can login with your line. "1123456789" (Area Code without 0 + Number without 15)"
+msgstr "Si sos cliente de Flow o de Telecom, podés ingresar con tu mail. "ejemplo@mail.com". Si tenés telefonía móvil de Personal, podés ingresar con tu línea. "1123456789" (Código de área sin 0 + Número sin el 15)"
+
+### access.user.password.label
+msgctxt "#30009"
+msgid "Password"
+msgstr "Contraseña"
+
+### access.user.password.help
+msgctxt "#30010"
+msgid ""
+msgstr ""
+
+### access.profile.label
+msgctxt "#30011"
+msgid "Profile"
+msgstr "Perfil"
+
+### access.profile.tvrating.label
+msgctxt "#30012"
+msgid "TV Rating"
+msgstr "Clasificación de televisión"
+
+### access.profile.tvrating.help
+msgctxt "#30013"
+msgid "Coming soon. Related to parental control. Keep it on 6"
+msgstr "Muy pronto. Relacionado al control parental. Mantener en 6"
+
+### access.profile.external.id.label
+msgctxt "#30014"
+msgid "External User Id"
+msgstr "ID de usuario externo"
+
+### access.profile.external.id.help
+msgctxt "#30015"
+msgid "Informative. not currently used"
+msgstr "Informativo. No usado actualmente"
+
+### access.device.label
+msgctxt "#30016"
+msgid "Device Keys"
+msgstr "Claves del Dispositivo"
+
+### access.device.cas.id.label
+msgctxt "#30017"
+msgid "CASUID"
+msgstr "CASUID"
+
+### access.device.cas.id.help
+msgctxt "#30018"
+msgid "Identifies the device with the streaming subsystem"
+msgstr "Identifica el dispositivo con el subsistema de streaming"
+
+### access.device.vuid.label
+msgctxt "#30019"
+msgid "MRVUID"
+msgstr "MRVUID"
+
+### access.device.vuid.help
+msgctxt "#30020"
+msgid "Used to request DRM Licence to decode video"
+msgstr "Se utiliza para solicitar la licencia DRM para decodificar video"
+
+### access.device.id.label
+msgctxt "#30021"
+msgid "Device ID in Flow Servers"
+msgstr "Id del Dispositivo en Servidores Flow"
+
+### access.device.id.help
+msgctxt "#30022"
+msgid "Informative. not currently used"
+msgstr "Informativo. No usado actualmente"
+
+### access.jwt.label
+msgctxt "#30023"
+msgid "JSON Web Token"
+msgstr "Token web JSON"
+
+### access.jwt.refresh.interval.label
+msgctxt "#30024"
+msgid "Update JWT every"
+msgstr "Actualizar JWT cada"
+
+### access.jwt.refresh.interval.help
+msgctxt "#30025"
+msgid "Refresh JWT every this amount of hours has passed"
+msgstr "Actualizar JWT cada vez que haya pasado esta cantidad de horas"
+
+### access.jwt.value.label
+msgctxt "#30026"
+msgid "JWT Value"
+msgstr "Valor JWT"
+
+### access.jwt.value.help
+msgctxt "#30027"
+msgid "Authentication token for API access"
+msgstr "Token de Autenticación para acceso a la API"
+
+### access.jwt.last.label
+msgctxt "#30028"
+msgid "JWT Last Update"
+msgstr "Última actualización JWT"
+
+### access.jwt.last.help
+msgctxt "#30029"
+msgid "When the JWT value was updated in milliseconds. www.epochtime.com for human form"
+msgstr "Cuando se actualizo el valor JWT en milisegundos. www.epochtime.com para forma humana"
+
+### access.jwt.duration.label
+msgctxt "#30030"
+msgid "Current JWT Duration"
+msgstr "Duración actual de JWT"
+
+### access.jwt.duration.help
+msgctxt "#30031"
+msgid "Informative. Time in milliseconds that the current JWT has been in effect"
+msgstr "Informativo. Tiempo en milisegundos que el actual JWT ha estado vigente"
+
+### access.prm.label
+msgctxt "#30032"
+msgid "PRM Token"
+msgstr "Token PRM"
+
+### access.prm.refresh.interval.label
+msgctxt "#30033"
+msgid "Update PRM every"
+msgstr "Actualizar PRM cada"
+
+### access.prm.refresh.interval.help
+msgctxt "#30034"
+msgid "Refresh PRM every this amount of hours has passed"
+msgstr "Actualizar PRM cada vez que haya pasado esta cantidad de horas"
+
+### access.prm.value.label
+msgctxt "#30035"
+msgid "PRM Value"
+msgstr "Valor PRM"
+
+### access.prm.value.help
+msgctxt "#30036"
+msgid "Authentication token for API access"
+msgstr "Token de Autenticación para acceso a la API"
+
+### access.prm.last.label
+msgctxt "#30037"
+msgid "PRM Last Update"
+msgstr "Última actualización PRM"
+
+### access.prm.last.help
+msgctxt "#30038"
+msgid "When the PRM value was updated in milliseconds. www.epochtime.com for human form"
+msgstr "Cuando se actualizo el valor PRM en milisegundos. www.epochtime.com para forma humana"
+
+### access.prm.duration.label
+msgctxt "#30039"
+msgid "Current PRM Duration"
+msgstr "Duración actual de PRM"
+
+### access.prm.duration.help
+msgctxt "#30040"
+msgid "Informative. Time in milliseconds that the current PRM has been in effect"
+msgstr "Informativo. Tiempo en milisegundos que el actual PRM ha estado vigente"
+
+### epg.label
+msgctxt "#30041"
+msgid "EPG"
+msgstr "EPG"
+
+### epg.help
+msgctxt "#30042"
+msgid "TV Channels and Programs Settings"
+msgstr "Configuraciones de Canales y Programas de TV"
+
+### epg.pvr.label
+msgctxt "#30043"
+msgid "PVR IPTV"
+msgstr "None"
+
+### epg.pvr.path.label
+msgctxt "#30044"
+msgid "EPG Path"
+msgstr "Directorio EPG"
+
+### epg.pvr.path.help
+msgctxt "#30045"
+msgid "Sets where (directory) to save the EPG resources to be later loaded by PVR IPTV"
+msgstr "Establece (el directorio) dónde guardar los recursos EPG para que PVR IPTV los cargue más tarde"
+
+### epg.pvr.m3u.file.label
+msgctxt "#30046"
+msgid "M3U playlist file name"
+msgstr "Nombre Archivo M3U"
+
+### epg.pvr.m3u.file.help
+msgctxt "#30047"
+msgid "M3U file name to be used by PVR IPTV"
+msgstr "Nombre del archivo M3U a ser utilizado por PVR IPTV"
+
+### epg.pvr.xml.file.label
+msgctxt "#30048"
+msgid "XMLTV file name"
+msgstr "Nombre Archivo XMLTV"
+
+### epg.pvr.xml.file.help
+msgctxt "#30049"
+msgid "XML file name to be used by PVR IPTV"
+msgstr "Nombre del archivo XML a ser utilizado por PVR IPTV"
+
+### epg.pvr.setup.label
+msgctxt "#30050"
+msgid "Auto Configure IPTV Simple Client"
+msgstr "Configurar IPTV Simple Client"
+
+### epg.pvr.setup.help
+msgctxt "#30051"
+msgid "Configure IPTV Simple Client with these values. "
+msgstr "Configure IPTV Simple Client con estos valores."
+
+### epg.channels.label
+msgctxt "#30052"
+msgid "Channels Settings"
+msgstr "Configuracion de Canales"
+
+### epg.channels.show.progress.label
+msgctxt "#30053"
+msgid "Show Channels Loading Progress"
+msgstr "Mostrar progreso de carga de canales"
+
+### epg.channels.show.progress.help
+msgctxt "#30054"
+msgid "Shows when and progress of channels loading. Except when playing video."
+msgstr "Muestra cuándo y el progreso de la carga de los canales. Excepto cuando se reproduce un video."
+
+### epg.channels.refresh.interval.label
+msgctxt "#30055"
+msgid "Update channels every"
+msgstr "Actualizar canales cada"
+
+### epg.channels.refresh.interval.help
+msgctxt "#30056"
+msgid "Refresh channels every this amount of days passes"
+msgstr "Actualizar canales cada vez que pase esta cantidad de días"
+
+### epg.channels.last.label
+msgctxt "#30057"
+msgid "Last update (Timestamp)"
+msgstr "Última actualización (Timestamp)"
+
+### epg.channels.last.help
+msgctxt "#30058"
+msgid "When the last update was made in milliseconds go to www.epochconverter.com for human form"
+msgstr "Cuando se realizó la última actualización en milisegundos, vaya a www.epochconverter.com para forma humana"
+
+### epg.programs.label
+msgctxt "#30059"
+msgid "TV Programs Settings"
+msgstr "Configuracion de Programas de TV"
+
+### epg.programs.show.progress.label
+msgctxt "#30060"
+msgid "Show Loading Progress"
+msgstr "Mostrar progreso de carga"
+
+### epg.programs.show.progress.help
+msgctxt "#30061"
+msgid "Shows progress loading. Except when playing video."
+msgstr "Muestra el progreso de la carga. Excepto cuando se reproduce un video."
+
+### epg.programs.refresh.interval.label
+msgctxt "#30062"
+msgid "Update Programs every"
+msgstr "Actualizar programas cada"
+
+### epg.programs.refresh.interval.help
+msgctxt "#30063"
+msgid "Refresh TV Programs every this amount of hours has passed"
+msgstr "Actualizar programas de TV cada vez que haya pasado esta cantidad de horas"
+
+### epg.programs.last.label
+msgctxt "#30064"
+msgid "Last update (Timestamp)"
+msgstr "Última actualización (Timestamp)"
+
+### epg.programs.last.help
+msgctxt "#30065"
+msgid "When the last update was made in milliseconds. Go to www.epochconverter.com for human form"
+msgstr "Cuando se realizó la última actualización en milisegundos. www.epochconverter.com para forma humana"
+
+### epg.programs.normal.label
+msgctxt "#30066"
+msgid "TV Programs Normal Load"
+msgstr "Carga Normal Programas de TV"
+
+### epg.programs.normal.total.hours.label
+msgctxt "#30067"
+msgid "Programming Grid Total Hours"
+msgstr "Programación Horas Totales"
+
+### epg.programs.normal.total.hours.help
+msgctxt "#30068"
+msgid "How many programming hours to retrieve. This number is compensated between past programming (max. 24Hs) and future programming"
+msgstr "How many programming hours to retrieve. This number is compensated between past programming (max. 24Hs) and future programming"
+
+### epg.programs.normal.channels.per.query.label
+msgctxt "#30069"
+msgid "Channels per Query"
+msgstr "Canales por consulta"
+
+### epg.programs.normal.channels.per.query.help
+msgctxt "#30070"
+msgid "How many channels retrieve on each query to the server."
+msgstr "Cuantos canales se recuperan en cada consulta al servidor."
+
+### epg.programs.normal.programs.per.query.label
+msgctxt "#30071"
+msgid "Programs per Query"
+msgstr "Programas por consulta"
+
+### epg.programs.normal.programs.per.query.help
+msgctxt "#30072"
+msgid "How many programs retrieve on each query to the server."
+msgstr "Cuantos programas se recuperan en cada consulta al servidor."
+
+### epg.programs.normal.queries.per.run.label
+msgctxt "#30073"
+msgid "Queries per Run"
+msgstr "Consultas por Ejecucion"
+
+### epg.programs.normal.queries.per.run.help
+msgctxt "#30074"
+msgid "How many queries to do to the server on each round."
+msgstr "Cuántas consultas hacer al servidor en cada ronda."
+
+### epg.programs.normal.wait.per.run.label
+msgctxt "#30075"
+msgid "Wait Between Rounds"
+msgstr "Espera entre rondas"
+
+### epg.programs.normal.wait.per.run.help
+msgctxt "#30076"
+msgid "How many time to wait between each round execution."
+msgstr "Cuánto tiempo esperar entre la ejecución de cada ronda."
+
+### epg.programs.emergency.label
+msgctxt "#30077"
+msgid "TV Programs Emergency Load"
+msgstr "Carga Emergencia Programas de TV"
+
+### epg.programs.emergency.enabled.label
+msgctxt "#30078"
+msgid "Enable Emergency Programs Load"
+msgstr "Habilitar carga de Emergencia"
+
+### epg.programs.emergency.enabled.help
+msgctxt "#30079"
+msgid "When enabled, emergency load only works if the schedule is past due. There is nothing in the programming grid."
+msgstr "Cuando está habilitada, la carga de emergencia solo funciona si el cronograma está atrasado. No hay nada en la grilla de programación."
+
+### epg.programs.emergency.show.progress.label
+msgctxt "#30080"
+msgid "Show Loading Progress"
+msgstr "Mostrar progreso de carga"
+
+### epg.programs.emergency.show.progress.help
+msgctxt "#30081"
+msgid "Shows progress loading. Except when playing video."
+msgstr "Muestra el progreso de la carga. Excepto cuando se reproduce un video."
+
+### epg.programs.emergency.total.hours.label
+msgctxt "#30082"
+msgid "Programming Grid Total Hours"
+msgstr "Programación Horas Totales"
+
+### epg.programs.emergency.total.hours.help
+msgctxt "#30083"
+msgid "How many programming hours to retrieve. This number is divided in 2. Hours before and after current hour. "
+msgstr "Cuántas horas de programación recuperar. Este número se divide en 2. Horas antes y después de la hora actual."
+
+### epg.programs.emergency.channels.per.query.label
+msgctxt "#30084"
+msgid "Channels per Query"
+msgstr "Canales por consulta"
+
+### epg.programs.emergency.channels.per.query.help
+msgctxt "#30085"
+msgid "How many channels retrieve on each query to the server."
+msgstr "Cuantos canales se recuperan en cada consulta al servidor."
+
+### epg.programs.emergency.programs.per.query.label
+msgctxt "#30086"
+msgid "Programs per Query"
+msgstr "Programas por consulta"
+
+### epg.programs.emergency.programs.per.query.help
+msgctxt "#30087"
+msgid "How many programs retrieve on each query to the server."
+msgstr "Cuantos programas se recuperan en cada consulta al servidor."
+
+### epg.programs.emergency.queries.per.run.label
+msgctxt "#30088"
+msgid "Queries per Run"
+msgstr "Consultas por Ejecucion"
+
+### epg.programs.emergency.queries.per.run.help
+msgctxt "#30089"
+msgid "How many queries to do to the server on each round."
+msgstr "Cuántas consultas hacer al servidor en cada ronda."
+
+### epg.programs.emergency.wait.per.run.label
+msgctxt "#30090"
+msgid "Wait Between Rounds"
+msgstr "Espera entre rondas"
+
+### epg.programs.emergency.wait.per.run.help
+msgctxt "#30091"
+msgid "How many time to wait between each round execution."
+msgstr "Cuánto tiempo esperar entre la ejecución de cada ronda."
+
+### api.label
+msgctxt "#30092"
+msgid "API"
+msgstr "API"
+
+### api.help
+msgctxt "#30093"
+msgid "Fixed Api values, don't change unless you know what you're doing..."
+msgstr "Fixed Api values, don't change unless you know what you're doing..."
+
+### api.servers.label
+msgctxt "#30094"
+msgid "Api Servers"
+msgstr "Servidores Api"
+
+### api.servers.main.label
+msgctxt "#30095"
+msgid "Main Api Server"
+msgstr "Servidor Api Principal"
+
+### api.servers.main.help
+msgctxt "#30096"
+msgid "Main Api Server"
+msgstr "Servidor Api Principal"
+
+### api.servers.images.label
+msgctxt "#30097"
+msgid "Images Server"
+msgstr "Servidor de Imagenes"
+
+### api.servers.images.help
+msgctxt "#30098"
+msgid "Images Server"
+msgstr "Servidor de Imagenes"
+
+### api.servers.app.label
+msgctxt "#30099"
+msgid "App Server"
+msgstr "Servidor Aplicacion"
+
+### api.servers.app.help
+msgctxt "#30100"
+msgid "App Server"
+msgstr "App Server"
+
+### api.servers.radio.app.label
+msgctxt "#30101"
+msgid "Radio App Server"
+msgstr "Servidor Radios"
+
+### api.servers.radio.app.help
+msgctxt "#30102"
+msgid "Radio App Server"
+msgstr "Servidor Radios"
+
+### api.servers.radio.src.label
+msgctxt "#30103"
+msgid "Radio Source Server"
+msgstr "Servidor Origen Radios"
+
+### api.servers.radio.src.help
+msgctxt "#30104"
+msgid "Radio Source Server"
+msgstr "Servidor Origen Radios"
+
+### api.servers.radio.img.label
+msgctxt "#30105"
+msgid "Radio Image Server"
+msgstr "Servidor Imagenes Radio"
+
+### api.servers.radio.img.help
+msgctxt "#30106"
+msgid "Radio Image Server"
+msgstr "Servidor Imagenes Radio"
+
+### api.data.label
+msgctxt "#30107"
+msgid "API Data"
+msgstr "Datos API"
+
+### api.data.version.label
+msgctxt "#30108"
+msgid "Current API Version"
+msgstr "Versión actual de la API"
+
+### api.data.version.help
+msgctxt "#30109"
+msgid "Versión actual de la API"
+msgstr "Versión actual de la API"
+
+### api.data.type.label
+msgctxt "#30110"
+msgid "Api Type"
+msgstr "Tipo Api"
+
+### api.data.type.help
+msgctxt "#30111"
+msgid "Api Type"
+msgstr "Tipo Api"
+
+### api.data.player.label
+msgctxt "#30112"
+msgid "Player Type"
+msgstr "Tipo Reproductor"
+
+### api.data.player.help
+msgctxt "#30113"
+msgid "Player Type"
+msgstr "Tipo Reproductor"
+
+### api.data.network.label
+msgctxt "#30114"
+msgid "Network Type"
+msgstr "Tipo de Red"
+
+### api.data.network.help
+msgctxt "#30115"
+msgid "Network Type"
+msgstr "Tipo de Red"
+
+### api.data.device.type.label
+msgctxt "#30116"
+msgid "Device Type"
+msgstr "Tipo Dispositivo"
+
+### api.data.device.type.help
+msgctxt "#30117"
+msgid "Device Type"
+msgstr "Tipo Dispositivo"
+
+### api.data.device.model.label
+msgctxt "#30118"
+msgid "Device Model"
+msgstr "Modelo del Dispositivo"
+
+### api.data.device.model.help
+msgctxt "#30119"
+msgid "Device Model"
+msgstr "Modelo del Dispositivo"
+
+### api.data.device.name.label
+msgctxt "#30120"
+msgid "Device Name"
+msgstr "Nombre del Dispositivo"
+
+### api.data.device.name.help
+msgctxt "#30121"
+msgid "Device Name"
+msgstr "Nombre del Dispositivo"
+
+### api.data.device.platform.label
+msgctxt "#30122"
+msgid "Platform "
+msgstr "Plataforma"
+
+### api.data.device.platform.help
+msgctxt "#30123"
+msgid "Platform "
+msgstr "Plataforma"
+
+### api.data.company.label
+msgctxt "#30124"
+msgid "Company"
+msgstr "Compania"
+
+### api.data.company.help
+msgctxt "#30125"
+msgid "Company"
+msgstr "Compania"
+
