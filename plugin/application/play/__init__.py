@@ -1,5 +1,3 @@
-from typing import Optional, cast
-
 import xbmcgui
 import xbmcplugin
 from piggy.base.util.logging import Logger
@@ -7,46 +5,47 @@ from ws.rs.httpmethod import GET
 from ws.rs.path import Path
 from ws.rs.pathparam import PathParam
 from ws.rs.queryparam import QueryParam
+from ws.rs.webapplicationexception import WebApplicationException
 
 from flow import FlowConstants
 from flow.client.prmclient import PrmClient
 from flow.model.prm import ContentSourceResponse
 from plugin.application.play.drmheadersbuilder import DRMHeadersBuilder
-from plugin.config import Settings, PRM, JWT, Access, ApiServers
-from plugin.stage import StageContext, Stage
-from plugin.stage.orchestrator import Orchestrator
-from plugin.stage.stageexecutor import StageExecutor
+from plugin.config import Settings, PRM, Access, ApiServers, JWT
 
 
-class ContentSourceGetter(Stage):
-    def execute(self, context: StageContext) -> Optional[bool]:
-        client: PrmClient = context.getComponent(PrmClient)
-        sourceId = context.getParam('id')
-        sourceType = context.getParam('sourceType')
-        drmId = Settings.of(Access).get(Access.VUID)
-        response: ContentSourceResponse = client.contentSource(
-            sourceId, sourceType, drmId
-        )
-        context.setProperty('content', response)
-        return True
-
-
-class PrmRegistration(Stage):
-    def execute(self, context: StageContext) -> Optional[bool]:
+@Path('/play')
+class PlayEndpoint:
+    def checkPrmRegistration(self, client: PrmClient):
         prmSettings = Settings.of(PRM)
         if not prmSettings.isCurrent():
-            client: PrmClient = context.getComponent(PrmClient)
             result = client.registerForPrm()
             prmSettings.set(PRM.VALUE, result.tokenForPRM)
             prmSettings.setLast()
-        return True
 
+    def getContentSource(self, client, sourceId, sourceType):
+        try:
+            drmId = Settings.of(Access).get(Access.VUID)
+            response: ContentSourceResponse = client.contentSource(
+                sourceId, sourceType, drmId
+            )
+            return response
+        except WebApplicationException as e:
+            __logger__ = Logger.getLogger(f'{self.__class__.__name__}.{self.__class__.__qualname__}')
+            __logger__.exception('Unable to play ', e)
+            return None
 
-class PrepareLicAndPlay(Stage):
-    __logger__ = Logger.getLogger(f'{__name__}.{__qualname__}')
+    def play(self, handler, contenType, id):
+        client: PrmClient = PrmClient()
+        self.checkPrmRegistration(client)
+        content: ContentSourceResponse = self.getContentSource(client, id, contenType)
 
-    def execute(self, context: StageContext) -> Optional[bool]:
-        content: ContentSourceResponse = cast(ContentSourceResponse, context.getProperty('content'))
+        if content is None:
+            d = xbmcgui.Dialog()
+            msg = "El contenido seleccionado ya no se encuentra disponible"
+            d.ok("No Encontrado...", msg)
+            return
+
         origin = Settings.of(ApiServers).get(ApiServers.APP)
         headers = DRMHeadersBuilder.builder().withJwt(
             # FIXME: Weird shit happens if don't replace. Base64 should be allowed...
@@ -69,45 +68,14 @@ class PrepareLicAndPlay(Stage):
         player.setMimeType('application/dash+xml')
         player.setContentLookup(False)
 
-        xbmcplugin.setResolvedUrl(context.getParam('handler'), True, listitem=player)
-        return True
-
-
-class ShowMissingMessage(Stage):
-    def execute(self, context: StageContext) -> Optional[bool]:
-        d = xbmcgui.Dialog()
-        msg = "El contenido seleccionado ya no se encuentra disponible"
-        d.ok("No Encontrado...", msg)
-        context.abort('Prm Negotiation Failed')
-
-
-class End(Stage):
-    def execute(self, context: StageContext) -> Optional[bool]:
-        context.abort('End OK')
-
-
-@Path('/play')
-class PlayEndpoint:
-    main: Orchestrator = Orchestrator.of(PrmRegistration).onSuccess(
-        Orchestrator.of(ContentSourceGetter).onSuccess(
-            Orchestrator.of(PrepareLicAndPlay).onSuccess(End)
-        )
-    ).onCrash(ShowMissingMessage)
-
-    EXECUTOR: StageExecutor = StageExecutor().configure(main)
+        xbmcplugin.setResolvedUrl(handler, True, listitem=player)
 
     @GET
     @Path('/channel/{id}')
     def playChannel(self, handler: QueryParam('handler'), channelId: PathParam('id'), resume: QueryParam):
-        # FIXME handler should be int
-        self.EXECUTOR.contextParam('handler', int(handler)).contextParam(
-            'sourceType', FlowConstants.ContentType.TV_CHANNEL
-        ).contextParam('id', channelId).execute()
+        self.play(int(handler), FlowConstants.ContentType.TV_CHANNEL, channelId)
 
     @GET
     @Path('/program/{id}')
     def playProgram(self, handler: QueryParam('handler'), programId: PathParam('id'), resume: QueryParam):
-        # FIXME handler should be int
-        self.EXECUTOR.contextParam('handler', int(handler)).contextParam(
-            'sourceType', FlowConstants.ContentType.TV_SCHEDULE
-        ).contextParam('id', programId).execute()
+        self.play(int(handler), FlowConstants.ContentType.TV_SCHEDULE, programId)
