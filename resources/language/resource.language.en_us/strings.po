@@ -283,358 +283,323 @@ msgctxt "#30054"
 msgid "Shows when and progress of channels loading. Except when playing video."
 msgstr ""
 
-### epg.channels.refresh.interval.label
+### epg.channels.group.name.label
 msgctxt "#30055"
+msgid "Channels Group Name"
+msgstr ""
+
+### epg.channels.group.name.help
+msgctxt "#30056"
+msgid "Group all Flow channels under the configured name"
+msgstr ""
+
+### epg.channels.refresh.interval.label
+msgctxt "#30057"
 msgid "Update channels every"
 msgstr ""
 
 ### epg.channels.refresh.interval.help
-msgctxt "#30056"
+msgctxt "#30058"
 msgid "Refresh channels every this amount of days passes"
 msgstr ""
 
 ### epg.channels.last.label
-msgctxt "#30057"
+msgctxt "#30059"
 msgid "Last update (Timestamp)"
 msgstr ""
 
 ### epg.channels.last.help
-msgctxt "#30058"
+msgctxt "#30060"
 msgid "When the last update was made in milliseconds go to www.epochconverter.com for human form"
 msgstr ""
 
 ### epg.programs.label
-msgctxt "#30059"
+msgctxt "#30061"
 msgid "TV Programs Settings"
 msgstr ""
 
 ### epg.programs.show.progress.label
-msgctxt "#30060"
+msgctxt "#30062"
 msgid "Show Loading Progress"
 msgstr ""
 
 ### epg.programs.show.progress.help
-msgctxt "#30061"
+msgctxt "#30063"
 msgid "Shows progress loading. Except when playing video."
 msgstr ""
 
 ### epg.programs.refresh.interval.label
-msgctxt "#30062"
-msgid "Update Programs every"
+msgctxt "#30064"
+msgid "Update Programs Threshold"
 msgstr ""
 
 ### epg.programs.refresh.interval.help
-msgctxt "#30063"
-msgid "Refresh TV Programs every this amount of hours has passed"
+msgctxt "#30065"
+msgid "Update TV shows when this number of hours remain in the grid"
+msgstr ""
+
+### epg.programs.last.run.label
+msgctxt "#30066"
+msgid "Last Retrieval Run"
+msgstr ""
+
+### epg.programs.last.run.help
+msgctxt "#30067"
+msgid "When was the last time TV shows were requested from the server"
+msgstr ""
+
+### epg.programs.last.run.interval.label
+msgctxt "#30068"
+msgid "Allow Update after"
+msgstr ""
+
+### epg.programs.last.run.interval.help
+msgctxt "#30069"
+msgid "Allow to Refresh TV Programs if this amount of hours has passed"
 msgstr ""
 
 ### epg.programs.last.label
-msgctxt "#30064"
+msgctxt "#30070"
 msgid "Last update (Timestamp)"
 msgstr ""
 
 ### epg.programs.last.help
-msgctxt "#30065"
+msgctxt "#30071"
 msgid "When the last update was made in milliseconds. Go to www.epochconverter.com for human form"
 msgstr ""
 
 ### epg.programs.normal.label
-msgctxt "#30066"
+msgctxt "#30072"
 msgid "TV Programs Normal Load"
 msgstr ""
 
 ### epg.programs.normal.total.hours.label
-msgctxt "#30067"
+msgctxt "#30073"
 msgid "Programming Grid Total Hours"
 msgstr ""
 
 ### epg.programs.normal.total.hours.help
-msgctxt "#30068"
+msgctxt "#30074"
 msgid "How many programming hours to retrieve. This number is compensated between past programming (max. 24Hs) and future programming"
 msgstr ""
 
 ### epg.programs.normal.channels.per.query.label
-msgctxt "#30069"
+msgctxt "#30075"
 msgid "Channels per Query"
 msgstr ""
 
 ### epg.programs.normal.channels.per.query.help
-msgctxt "#30070"
+msgctxt "#30076"
 msgid "How many channels retrieve on each query to the server."
 msgstr ""
 
 ### epg.programs.normal.programs.per.query.label
-msgctxt "#30071"
+msgctxt "#30077"
 msgid "Programs per Query"
 msgstr ""
 
 ### epg.programs.normal.programs.per.query.help
-msgctxt "#30072"
+msgctxt "#30078"
 msgid "How many programs retrieve on each query to the server."
 msgstr ""
 
 ### epg.programs.normal.queries.per.run.label
-msgctxt "#30073"
+msgctxt "#30079"
 msgid "Queries per Run"
 msgstr ""
 
 ### epg.programs.normal.queries.per.run.help
-msgctxt "#30074"
+msgctxt "#30080"
 msgid "How many queries to do to the server on each round."
 msgstr ""
 
 ### epg.programs.normal.wait.per.run.label
-msgctxt "#30075"
+msgctxt "#30081"
 msgid "Wait Between Rounds"
 msgstr ""
 
 ### epg.programs.normal.wait.per.run.help
-msgctxt "#30076"
-msgid "How many time to wait between each round execution."
-msgstr ""
-
-### epg.programs.emergency.label
-msgctxt "#30077"
-msgid "TV Programs Emergency Load"
-msgstr ""
-
-### epg.programs.emergency.enabled.label
-msgctxt "#30078"
-msgid "Enable Emergency Programs Load"
-msgstr ""
-
-### epg.programs.emergency.enabled.help
-msgctxt "#30079"
-msgid "When enabled, emergency load only works if the schedule is past due. There is nothing in the programming grid."
-msgstr ""
-
-### epg.programs.emergency.show.progress.label
-msgctxt "#30080"
-msgid "Show Loading Progress"
-msgstr ""
-
-### epg.programs.emergency.show.progress.help
-msgctxt "#30081"
-msgid "Shows progress loading. Except when playing video."
-msgstr ""
-
-### epg.programs.emergency.total.hours.label
 msgctxt "#30082"
-msgid "Programming Grid Total Hours"
-msgstr ""
-
-### epg.programs.emergency.total.hours.help
-msgctxt "#30083"
-msgid "How many programming hours to retrieve. This number is divided in 2. Hours before and after current hour. "
-msgstr ""
-
-### epg.programs.emergency.channels.per.query.label
-msgctxt "#30084"
-msgid "Channels per Query"
-msgstr ""
-
-### epg.programs.emergency.channels.per.query.help
-msgctxt "#30085"
-msgid "How many channels retrieve on each query to the server."
-msgstr ""
-
-### epg.programs.emergency.programs.per.query.label
-msgctxt "#30086"
-msgid "Programs per Query"
-msgstr ""
-
-### epg.programs.emergency.programs.per.query.help
-msgctxt "#30087"
-msgid "How many programs retrieve on each query to the server."
-msgstr ""
-
-### epg.programs.emergency.queries.per.run.label
-msgctxt "#30088"
-msgid "Queries per Run"
-msgstr ""
-
-### epg.programs.emergency.queries.per.run.help
-msgctxt "#30089"
-msgid "How many queries to do to the server on each round."
-msgstr ""
-
-### epg.programs.emergency.wait.per.run.label
-msgctxt "#30090"
-msgid "Wait Between Rounds"
-msgstr ""
-
-### epg.programs.emergency.wait.per.run.help
-msgctxt "#30091"
 msgid "How many time to wait between each round execution."
 msgstr ""
 
 ### api.label
-msgctxt "#30092"
+msgctxt "#30083"
 msgid "API"
 msgstr ""
 
 ### api.help
-msgctxt "#30093"
+msgctxt "#30084"
 msgid "Fixed Api values, don't change unless you know what you're doing..."
 msgstr ""
 
 ### api.servers.label
-msgctxt "#30094"
+msgctxt "#30085"
 msgid "Api Servers"
 msgstr ""
 
 ### api.servers.main.label
-msgctxt "#30095"
+msgctxt "#30086"
 msgid "Main Api Server"
 msgstr ""
 
 ### api.servers.main.help
-msgctxt "#30096"
+msgctxt "#30087"
 msgid "Main Api Server"
 msgstr ""
 
 ### api.servers.images.label
-msgctxt "#30097"
+msgctxt "#30088"
 msgid "Images Server"
 msgstr ""
 
 ### api.servers.images.help
-msgctxt "#30098"
+msgctxt "#30089"
 msgid "Images Server"
 msgstr ""
 
 ### api.servers.app.label
-msgctxt "#30099"
+msgctxt "#30090"
 msgid "App Server"
 msgstr ""
 
 ### api.servers.app.help
-msgctxt "#30100"
+msgctxt "#30091"
 msgid "App Server"
 msgstr ""
 
 ### api.servers.radio.app.label
-msgctxt "#30101"
+msgctxt "#30092"
 msgid "Radio App Server"
 msgstr ""
 
 ### api.servers.radio.app.help
-msgctxt "#30102"
+msgctxt "#30093"
 msgid "Radio App Server"
 msgstr ""
 
 ### api.servers.radio.src.label
-msgctxt "#30103"
+msgctxt "#30094"
 msgid "Radio Source Server"
 msgstr ""
 
 ### api.servers.radio.src.help
-msgctxt "#30104"
+msgctxt "#30095"
 msgid "Radio Source Server"
 msgstr ""
 
 ### api.servers.radio.img.label
-msgctxt "#30105"
+msgctxt "#30096"
 msgid "Radio Image Server"
 msgstr ""
 
 ### api.servers.radio.img.help
-msgctxt "#30106"
+msgctxt "#30097"
 msgid "Radio Image Server"
 msgstr ""
 
 ### api.data.label
-msgctxt "#30107"
+msgctxt "#30098"
 msgid "API Data"
 msgstr ""
 
 ### api.data.version.label
-msgctxt "#30108"
+msgctxt "#30099"
 msgid "Current API Version"
 msgstr ""
 
 ### api.data.version.help
-msgctxt "#30109"
+msgctxt "#30100"
 msgid "Versión actual de la API"
 msgstr ""
 
 ### api.data.type.label
-msgctxt "#30110"
+msgctxt "#30101"
 msgid "Api Type"
 msgstr ""
 
 ### api.data.type.help
-msgctxt "#30111"
+msgctxt "#30102"
 msgid "Api Type"
 msgstr ""
 
 ### api.data.player.label
-msgctxt "#30112"
+msgctxt "#30103"
 msgid "Player Type"
 msgstr ""
 
 ### api.data.player.help
-msgctxt "#30113"
+msgctxt "#30104"
 msgid "Player Type"
 msgstr ""
 
 ### api.data.network.label
-msgctxt "#30114"
+msgctxt "#30105"
 msgid "Network Type"
 msgstr ""
 
 ### api.data.network.help
-msgctxt "#30115"
+msgctxt "#30106"
 msgid "Network Type"
 msgstr ""
 
 ### api.data.device.type.label
-msgctxt "#30116"
+msgctxt "#30107"
 msgid "Device Type"
 msgstr ""
 
 ### api.data.device.type.help
-msgctxt "#30117"
+msgctxt "#30108"
 msgid "Device Type"
 msgstr ""
 
 ### api.data.device.model.label
-msgctxt "#30118"
+msgctxt "#30109"
 msgid "Device Model"
 msgstr ""
 
 ### api.data.device.model.help
-msgctxt "#30119"
+msgctxt "#30110"
 msgid "Device Model"
 msgstr ""
 
 ### api.data.device.name.label
-msgctxt "#30120"
+msgctxt "#30111"
 msgid "Device Name"
 msgstr ""
 
 ### api.data.device.name.help
-msgctxt "#30121"
+msgctxt "#30112"
 msgid "Device Name"
 msgstr ""
 
 ### api.data.device.platform.label
-msgctxt "#30122"
+msgctxt "#30113"
 msgid "Platform "
 msgstr ""
 
 ### api.data.device.platform.help
-msgctxt "#30123"
+msgctxt "#30114"
 msgid "Platform "
 msgstr ""
 
 ### api.data.company.label
-msgctxt "#30124"
+msgctxt "#30115"
 msgid "Company"
 msgstr ""
 
 ### api.data.company.help
-msgctxt "#30125"
+msgctxt "#30116"
 msgid "Company"
+msgstr ""
+
+### api.data.request.id.prefix.label
+msgctxt "#30117"
+msgid "X-Request-Id Prefix"
+msgstr ""
+
+### api.data.request.id.prefix.help
+msgctxt "#30118"
+msgid "Identifier used by server to individualize each request"
 msgstr ""
 

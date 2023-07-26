@@ -70,7 +70,7 @@
                 </setting>
                 <setting id="access.device.id" type="string" label="30021" help="30022">
                     <level>3</level>
-                    <default/>
+                    <default>0</default>
                     <constraints>
                         <allowempty>true</allowempty>
                         <writable>true</writable>
@@ -87,7 +87,7 @@
                         <allowempty>false</allowempty>
                         <writable>true</writable>
                         <minimum>6</minimum>
-                        <maximum>36</maximum>
+                        <maximum>24</maximum>
                         <step>1</step>
                     </constraints>
                     <control type="slider" format="integer">
@@ -229,7 +229,7 @@
                     <control type="toggle" format="boolean">
                     </control>
                 </setting>
-                <setting id="epg.channels.channels.group.name" type="string" label="" help="">
+                <setting id="epg.channels.group.name" type="string" label="30055" help="30056">
                     <level>0</level>
                     <default>Flow</default>
                     <constraints>
@@ -239,7 +239,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="epg.channels.refresh.interval" type="integer" label="30055" help="30056">
+                <setting id="epg.channels.refresh.interval" type="integer" label="30057" help="30058">
                     <level>1</level>
                     <default>7</default>
                     <constraints>
@@ -253,7 +253,7 @@
                         <formatlabel>30001</formatlabel>
                     </control>
                 </setting>
-                <setting id="epg.channels.last" type="string" label="30057" help="30058">
+                <setting id="epg.channels.last" type="string" label="30059" help="30060">
                     <level>3</level>
                     <default>0</default>
                     <constraints>
@@ -264,8 +264,8 @@
                     </control>
                 </setting>
             </group>
-            <group id="epg.programs" label="30059">
-                <setting id="epg.programs.show.progress" type="boolean" label="30060" help="30061">
+            <group id="epg.programs" label="30061">
+                <setting id="epg.programs.show.progress" type="boolean" label="30062" help="30063">
                     <level>0</level>
                     <default>true</default>
                     <constraints>
@@ -275,21 +275,45 @@
                     <control type="toggle" format="boolean">
                     </control>
                 </setting>
-                <setting id="epg.programs.refresh.interval" type="integer" label="30062" help="30063">
+                <setting id="epg.programs.refresh.interval" type="integer" label="30064" help="30065">
                     <level>1</level>
-                    <default>24</default>
+                    <default>9</default>
                     <constraints>
                         <allowempty>false</allowempty>
                         <writable>true</writable>
-                        <minimum>12</minimum>
-                        <maximum>96</maximum>
+                        <minimum>6</minimum>
+                        <maximum>12</maximum>
                         <step>1</step>
                     </constraints>
                     <control type="slider" format="integer">
                         <formatlabel>30002</formatlabel>
                     </control>
                 </setting>
-                <setting id="epg.programs.last" type="string" label="30064" help="30065">
+                <setting id="epg.programs.last.run" type="string" label="30066" help="30067">
+                    <level>3</level>
+                    <default>0</default>
+                    <constraints>
+                        <allowempty>false</allowempty>
+                        <writable>true</writable>
+                    </constraints>
+                    <control type="edit" format="integer">
+                    </control>
+                </setting>
+                <setting id="epg.programs.last.run.interval" type="integer" label="30068" help="30069">
+                    <level>3</level>
+                    <default>5</default>
+                    <constraints>
+                        <allowempty>false</allowempty>
+                        <writable>true</writable>
+                        <minimum>2</minimum>
+                        <maximum>12</maximum>
+                        <step>1</step>
+                    </constraints>
+                    <control type="slider" format="integer">
+                        <formatlabel>30002</formatlabel>
+                    </control>
+                </setting>
+                <setting id="epg.programs.last" type="string" label="30070" help="30071">
                     <level>3</level>
                     <default>0</default>
                     <constraints>
@@ -300,8 +324,8 @@
                     </control>
                 </setting>
             </group>
-            <group id="epg.programs.normal" label="30066">
-                <setting id="epg.programs.normal.total.hours" type="integer" label="30067" help="30068">
+            <group id="epg.programs.normal" label="30072">
+                <setting id="epg.programs.normal.total.hours" type="integer" label="30073" help="30074">
                     <level>0</level>
                     <default>72</default>
                     <constraints>
@@ -315,20 +339,20 @@
                         <formatlabel>30002</formatlabel>
                     </control>
                 </setting>
-                <setting id="epg.programs.normal.channels.per.query" type="integer" label="30069" help="30070">
+                <setting id="epg.programs.normal.channels.per.query" type="integer" label="30075" help="30076">
                     <level>3</level>
                     <default>8</default>
                     <constraints>
                         <allowempty>false</allowempty>
                         <writable>true</writable>
                         <minimum>2</minimum>
-                        <maximum>10</maximum>
+                        <maximum>12</maximum>
                         <step>1</step>
                     </constraints>
                     <control type="slider" format="integer">
                     </control>
                 </setting>
-                <setting id="epg.programs.normal.programs.per.query" type="integer" label="30071" help="30072">
+                <setting id="epg.programs.normal.programs.per.query" type="integer" label="30077" help="30078">
                     <level>3</level>
                     <default>1440</default>
                     <constraints>
@@ -341,20 +365,20 @@
                     <control type="slider" format="integer">
                     </control>
                 </setting>
-                <setting id="epg.programs.normal.queries.per.run" type="integer" label="30073" help="30074">
+                <setting id="epg.programs.normal.queries.per.run" type="integer" label="30079" help="30080">
                     <level>3</level>
-                    <default>5</default>
+                    <default>4</default>
                     <constraints>
                         <allowempty>false</allowempty>
                         <writable>true</writable>
                         <minimum>1</minimum>
-                        <maximum>8</maximum>
+                        <maximum>6</maximum>
                         <step>1</step>
                     </constraints>
                     <control type="slider" format="integer">
                     </control>
                 </setting>
-                <setting id="epg.programs.normal.wait.per.run" type="integer" label="30075" help="30076">
+                <setting id="epg.programs.normal.wait.per.run" type="integer" label="30081" help="30082">
                     <level>3</level>
                     <default>1500</default>
                     <constraints>
@@ -369,99 +393,10 @@
                     </control>
                 </setting>
             </group>
-            <group id="epg.programs.emergency" label="30077">
-                <setting id="epg.programs.emergency.enabled" type="boolean" label="30078" help="30079">
-                    <level>0</level>
-                    <default>true</default>
-                    <constraints>
-                        <allowempty>true</allowempty>
-                        <writable>true</writable>
-                    </constraints>
-                    <control type="toggle" format="boolean">
-                    </control>
-                </setting>
-                <setting id="epg.programs.emergency.show.progress" type="boolean" label="30080" help="30081">
-                    <level>0</level>
-                    <default>true</default>
-                    <constraints>
-                        <allowempty>true</allowempty>
-                        <writable>true</writable>
-                    </constraints>
-                    <control type="toggle" format="boolean">
-                    </control>
-                </setting>
-                <setting id="epg.programs.emergency.total.hours" type="integer" label="30082" help="30083">
-                    <level>3</level>
-                    <default>6</default>
-                    <constraints>
-                        <allowempty>false</allowempty>
-                        <writable>true</writable>
-                        <minimum>2</minimum>
-                        <maximum>12</maximum>
-                        <step>2</step>
-                    </constraints>
-                    <control type="slider" format="integer">
-                        <formatlabel>30002</formatlabel>
-                    </control>
-                </setting>
-                <setting id="epg.programs.emergency.channels.per.query" type="integer" label="30084" help="30085">
-                    <level>3</level>
-                    <default>8</default>
-                    <constraints>
-                        <allowempty>false</allowempty>
-                        <writable>true</writable>
-                        <minimum>2</minimum>
-                        <maximum>10</maximum>
-                        <step>1</step>
-                    </constraints>
-                    <control type="slider" format="integer">
-                    </control>
-                </setting>
-                <setting id="epg.programs.emergency.programs.per.query" type="integer" label="30086" help="30087">
-                    <level>3</level>
-                    <default>1440</default>
-                    <constraints>
-                        <allowempty>false</allowempty>
-                        <writable>true</writable>
-                        <minimum>1000</minimum>
-                        <maximum>1440</maximum>
-                        <step>1</step>
-                    </constraints>
-                    <control type="slider" format="integer">
-                    </control>
-                </setting>
-                <setting id="epg.programs.emergency.queries.per.run" type="integer" label="30088" help="30089">
-                    <level>3</level>
-                    <default>5</default>
-                    <constraints>
-                        <allowempty>false</allowempty>
-                        <writable>true</writable>
-                        <minimum>1</minimum>
-                        <maximum>8</maximum>
-                        <step>1</step>
-                    </constraints>
-                    <control type="slider" format="integer">
-                    </control>
-                </setting>
-                <setting id="epg.programs.emergency.wait.per.run" type="integer" label="30090" help="30091">
-                    <level>3</level>
-                    <default>150</default>
-                    <constraints>
-                        <allowempty>false</allowempty>
-                        <writable>true</writable>
-                        <minimum>100</minimum>
-                        <maximum>3000</maximum>
-                        <step>10</step>
-                    </constraints>
-                    <control type="slider" format="integer">
-                        <formatlabel>30003</formatlabel>
-                    </control>
-                </setting>
-            </group>
         </category>
-        <category id="api" label="30092" help="30093">
-            <group id="api.servers" label="30094">
-                <setting id="api.servers.main" type="string" label="30095" help="30096">
+        <category id="api" label="30083" help="30084">
+            <group id="api.servers" label="30085">
+                <setting id="api.servers.main" type="string" label="30086" help="30087">
                     <level>3</level>
                     <default>https://web.flow.com.ar</default>
                     <constraints>
@@ -471,7 +406,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.servers.images" type="string" label="30097" help="30098">
+                <setting id="api.servers.images" type="string" label="30088" help="30089">
                     <level>3</level>
                     <default>https://static.flow.com.ar</default>
                     <constraints>
@@ -481,7 +416,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.servers.app" type="string" label="30099" help="30100">
+                <setting id="api.servers.app" type="string" label="30090" help="30091">
                     <level>3</level>
                     <default>https://web.app.flow.com.ar</default>
                     <constraints>
@@ -491,7 +426,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.servers.radio.app" type="string" label="30101" help="30102">
+                <setting id="api.servers.radio.app" type="string" label="30092" help="30093">
                     <level>3</level>
                     <default>https://musicapp.cvattv.com.ar</default>
                     <constraints>
@@ -501,7 +436,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.servers.radio.src" type="string" label="30103" help="30104">
+                <setting id="api.servers.radio.src" type="string" label="30094" help="30095">
                     <level>3</level>
                     <default>https://musicsrc.cvattv.com.ar</default>
                     <constraints>
@@ -511,7 +446,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.servers.radio.img" type="string" label="30105" help="30106">
+                <setting id="api.servers.radio.img" type="string" label="30096" help="30097">
                     <level>3</level>
                     <default>https://web.app.flow.com.ar/img/radios</default>
                     <constraints>
@@ -522,8 +457,8 @@
                     </control>
                 </setting>
             </group>
-            <group id="api.data" label="30107">
-                <setting id="api.data.version" type="string" label="30108" help="30109">
+            <group id="api.data" label="30098">
+                <setting id="api.data.version" type="string" label="30099" help="30100">
                     <level>3</level>
                     <default>3.60.3</default>
                     <constraints>
@@ -533,7 +468,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.type" type="string" label="30110" help="30111">
+                <setting id="api.data.type" type="string" label="30101" help="30102">
                     <level>3</level>
                     <default>CVA</default>
                     <constraints>
@@ -543,7 +478,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.player" type="string" label="30112" help="30113">
+                <setting id="api.data.player" type="string" label="30103" help="30104">
                     <level>3</level>
                     <default>VISUAL_ON</default>
                     <constraints>
@@ -553,7 +488,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.network" type="string" label="30114" help="30115">
+                <setting id="api.data.network" type="string" label="30105" help="30106">
                     <level>3</level>
                     <default>BROADBAND</default>
                     <constraints>
@@ -563,7 +498,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.device.type" type="string" label="30116" help="30117">
+                <setting id="api.data.device.type" type="string" label="30107" help="30108">
                     <level>3</level>
                     <default>WEB</default>
                     <constraints>
@@ -573,7 +508,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.device.model" type="string" label="30118" help="30119">
+                <setting id="api.data.device.model" type="string" label="30109" help="30110">
                     <level>3</level>
                     <default>PC</default>
                     <constraints>
@@ -583,9 +518,9 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.device.name" type="string" label="30120" help="30121">
+                <setting id="api.data.device.name" type="string" label="30111" help="30112">
                     <level>3</level>
-                    <default>Kodi</default>
+                    <default>KODI</default>
                     <constraints>
                         <allowempty>false</allowempty>
                         <writable>true</writable>
@@ -593,7 +528,7 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.device.platform" type="string" label="30122" help="30123">
+                <setting id="api.data.device.platform" type="string" label="30113" help="30114">
                     <level>3</level>
                     <default>WINDOWS</default>
                     <constraints>
@@ -603,9 +538,19 @@
                     <control type="edit" format="string">
                     </control>
                 </setting>
-                <setting id="api.data.company" type="string" label="30124" help="30125">
+                <setting id="api.data.company" type="string" label="30115" help="30116">
                     <level>3</level>
                     <default>flow</default>
+                    <constraints>
+                        <allowempty>false</allowempty>
+                        <writable>true</writable>
+                    </constraints>
+                    <control type="edit" format="string">
+                    </control>
+                </setting>
+                <setting id="api.data.request.id.prefix" type="string" label="30117" help="30118">
+                    <level>3</level>
+                    <default>K0D1</default>
                     <constraints>
                         <allowempty>false</allowempty>
                         <writable>true</writable>

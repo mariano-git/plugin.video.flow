@@ -28,8 +28,7 @@ class PlugInUtils:
 
     @staticmethod
     def CASID():
-        kf = ' kodiflow'
-        return f"{kf}{str(uuid.uuid4()).replace('-', '')[len(kf):]}"
+        return str(uuid.uuid4()).replace('-', '')
 
     @staticmethod
     def initLogger():

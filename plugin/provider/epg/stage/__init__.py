@@ -3,7 +3,7 @@ from xml.etree import ElementTree as Document
 from piggy.mapper.documentmapper import DocumentMapper
 
 from plugin.config import Epg, Programs, Settings
-from plugin.provider.epg.model.xmltv import XmlTvChannels
+from plugin.provider.epg.model.xmltv import XmlTvChannels, XmlTv
 from plugin.stage import Stage, StageContext
 from plugin.util import ProgressIndicator, File
 
@@ -18,6 +18,14 @@ class TVScheduleCurrent(Stage):
 
 
 class BaseRetriever(Stage):
+
+    def getXmlTv(self):
+        settings = Settings.of(Epg)
+        file = File.of(settings.get(Epg.PATH), settings.get(Epg.XML_EPG_FILE))
+        if file.exists():
+            om = DocumentMapper()
+            return om.readDocument(file.toString(), XmlTv)
+        return None
 
     def getChannels(self):
         settings = Settings.of(Epg)
@@ -39,7 +47,7 @@ class BaseRetriever(Stage):
         logger.info(
             f"\n \
                                                    ********************************************\n \
-                                                   Saving xml channels: \"{fileName}\" \n \
+                                                   Saving xml programs: \"{fileName}\" \n \
                                                    ********************************************")
         with open(fileName, "wb") as xmlFile:
             document.write(xmlFile, encoding, True)

@@ -4,8 +4,8 @@ from piggy.base.util import Objects
 from piggy.base.util.concurrent.timeunit import TimeUnit
 from piggy.base.util.date import Date
 from piggy.base.util.logging import Logger
-
 from plugin import ADDON
+from plugin.util.time import Time
 
 T = TypeVar('T')
 
@@ -30,13 +30,11 @@ class Settings:
         cls = key[1]
         keyVal = f'{self.prefix}.{name}'
         setting = ADDON.getSetting(keyVal)
-        self.__lg__.debug('Get Setting declared as %s and returned as %s: %s = "%s"',
-                          cls, type(setting), keyVal, setting)
+
         # Kodi returns an "empty" string when value doesn't exists
         if Objects.isEmpty(setting):
             return None
         if name == 'last' or name == 'duration':
-            self.__lg__.debug('Returning int for setting:: %s = "%s"', keyVal, setting)
             return int(setting)
         if cls == str:
             return setting
@@ -57,26 +55,24 @@ class Settings:
         # Just save value as it is...
         # typed methods doesn't work very well.
         if value is None:
-            self.__lg__.debug('Saving Setting None as generic "setSetting": %s = "%s"', keyVal, value)
             ADDON.setSetting(keyVal, value)
             return
-        if name == 'last' or name == 'duration':
-            self.__lg__.debug('Saving int Setting as string  "setSetting": %s = "%s"', keyVal, value)
+        if name.startswith('last') or name == 'duration':
             ADDON.setSettingString(keyVal, str(value))
             return
 
         if cls == int:
-            self.__lg__.debug('Saving Setting int as INT: %s = "%s" type: %s', keyVal, value,
-                              type(value))
-            ADDON.setSettingInt(keyVal, value)
+            try:
+                # Knowing python doesn't have different ints Kodi complains if the number is a long
+                # Won't be so hard to save it as long just in case or test the case...
+                ADDON.setSettingInt(keyVal, value)
+            except OverflowError as o:
+                ADDON.setSettingString(keyVal, value)
         elif cls == float:
-            self.__lg__.debug('Saving Setting float (setSettingNumber): %s = "%s" type: %s', keyVal, value, type(value))
             ADDON.setSettingNumber(keyVal, value)
         elif cls == bool:
-            self.__lg__.debug('Saving Setting as bool (setSettingBool): %s = "%s" type: %s', keyVal, value, type(value))
             ADDON.setSettingBool(keyVal, value)
         else:
-            self.__lg__.debug('Saving Setting as generic str: %s = "%s" type: %s', keyVal, value, type(value))
             ADDON.setSettingString(keyVal, str(value))
 
 
@@ -151,6 +147,7 @@ class ApiData(Settings):
     DEVICE_NAME = ('device.name', str)  # api.data.device.name, str
     PLATFORM = ('device.platform', str)  # api.data.device.platform, str
     COMPANY = ('company', str)  # api.data.company, str
+    REQUEST_ID_PREFIX = ('request.id.prefix', str)
 
 
 class ApiServers(Settings):
@@ -182,16 +179,18 @@ class Programs(Expirable):
     __PREFIX__ = 'epg.programs'
     REFRESH_INTERVAL = ('refresh.interval', int, TimeUnit.HOURS)
     LAST = ('last', int)
+    LAST_RUN = ('last.run', int)
+    LAST_RUN_INTERVAL = ('last.run.interval', int, TimeUnit.HOURS)
 
     SHOW_PROGRESS = ('show.progress', bool)
 
-    # = ('normal.show.progress', bool)
     NORMAL_CHANNELS_PER_QUERY = ('normal.channels.per.query', int)
     NORMAL_PROGRAMS_PER_QUERY = ('normal.programs.per.query', int)
     NORMAL_QUERIES_PER_RUN = ('normal.queries.per.run', int)
     NORMAL_WAIT_PER_RUN = ('normal.wait.per.run', int)
     NORMAL_TOTAL_HOURS = ('normal.total.hours', int)
 
+    '''
     EMERGENCY_ENABLED = ('emergency.programs.emergency.enabled', bool)
     EMERGENCY_SHOW_PROGRESS = ('emergency.show.progress', bool)
     EMERGENCY_CHANNELS_PER_QUERY = ('emergency.channels.per.query', int)
@@ -199,16 +198,38 @@ class Programs(Expirable):
     EMERGENCY_QUERY_PER_RUN = ('emergency.queries.per.run', int)
     EMERGENCY_WAIT_PER_RUN = ('emergency.wait.per.run', int)
     EMERGENCY_TOTAL_HOURS = ('emergency.total.hours', int)
+    '''
 
-    def isTVScheduleExpired(self):
-        # Programs last is the startTime of the further most future program
-        # So, The schedule isExpired when that date is in the past
-        past = Date(self.getLast())
-        now = Date()
-        valid = past.before(now)
-        self.__lg__.debug('past: %s, now: %s, isTVScheduleExpired: %s, real: %s',
-                          past.millis, now.millis, valid, past.millis < now.millis)
-        return valid
+    def updateLastRun(self, value: Optional[int] = None):
+        return self.set(self.LAST_RUN, Date().getTime() if value is None else value)
+
+    def isRunAllowed(self):
+        timeUnit = self.LAST_RUN_INTERVAL[2]
+        interval = self.get(self.LAST_RUN_INTERVAL)
+        lastRun = self.get(self.LAST_RUN)
+        if lastRun > 0:
+            lastDate = Date(self.getLast())
+            lastRunDate = Date(lastRun)
+            if lastDate.after(lastRunDate):
+                # Correct condition
+                # deltaLastRun must be large enough to fit refresh interval. Minimum 6 otherwise set to 6
+                deltaLastRun = Time.ofDate(lastDate).delta(Time.ofDate(lastRunDate), TimeUnit.HOURS)
+                if deltaLastRun < 6:
+                    self.__lg__.warning(
+                        'Delta between last EPG refresh run (%s) and the start of the furthermost TV program'
+                        'is very small. I\'ll to correct it...', deltaLastRun
+                    )
+                    # Do we have correct settings to update EPG programs? If deltaLastRun is small might be because
+                    # EPG retrieval period is very small.
+                    epgTotalHours = self.get(self.NORMAL_TOTAL_HOURS)
+                    refreshInterval = self.get(self.REFRESH_INTERVAL)
+                    if epgTotalHours < 24:
+                        self.set(self.NORMAL_TOTAL_HOURS, 48)
+                    if refreshInterval < 6:
+                        self.set(self.REFRESH_INTERVAL, 6)
+
+            return Date().after(Time.ofDate(lastRunDate).add(interval, timeUnit).toDate())
+        return True
 
     def isTVScheduleCurrent(self):
         # Programs last is the startTime of the further most future program
@@ -216,10 +237,6 @@ class Programs(Expirable):
         startTimeInFuture = Date(self.getLast())
         realFuture = Date(Date().getTime() + self.getThresholdAsMillis())
         current = startTimeInFuture.after(realFuture)
-
-        self.__lg__.debug('isTVScheduleCurrent startTime: %s, future: %s, isCurrent: %s, real: %s',
-                          startTimeInFuture.millis, realFuture.millis, current,
-                          realFuture.millis < startTimeInFuture.millis)
 
         return current
 

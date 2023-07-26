@@ -59,6 +59,14 @@ class Time:
         dt = DateTime.fromtimestamp(float(delta / 1000), self.tz)  # .replace(tzinfo=self.tz)
         return Time(dt, self.tz)
 
+    def delta(self, other: 'Time', unit: TimeUnit) -> float:
+        if isinstance(other, Time):
+            delta = self.toMillis() - other.toMillis()
+            return unit.convert(delta, TimeUnit.MILLISECONDS)
+        elif isinstance(other, Date):
+            delta = self.toMillis() - other.getTime()
+            return unit.convert(delta, TimeUnit.MILLISECONDS)
+
     def toMillis(self) -> int:
         return int(self.dt.timestamp() * 1000)
 

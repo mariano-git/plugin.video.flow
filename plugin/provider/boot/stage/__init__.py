@@ -24,9 +24,10 @@ class DisplayConfigurationMessage(Stage):
         context.getLogger(self).debug('execute')
         if context.getProperty('check.config.message.show') is None:
             d = xbmcgui.Dialog()
-            msg = "Necesitas configurar el plugin para poder utilizarlo\n" \
-                  "Ve a la seccion plugins y alli configura tu usuario y password de FLow"
-            d.ok("Configuracion incompleta...", msg)
+            msg = "Necesitas configurar el plugin para poder utilizarlo\n\n" \
+                  "- Ve a la sección addons y alli configura\n" \
+                  "- tu usuario y password de Flow"
+            d.ok("FLOW - Configuracion incompleta...", msg)
             context.setProperty('check.config.message.show', True)
             # TODO
             # xbmcaddon.openSettings

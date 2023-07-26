@@ -1,12 +1,14 @@
 from typing import List, Optional
 from urllib.parse import urlparse
 
-from flow import FlowConstants
 from piggy.base.stringbuilder import StringBuilder
 from piggy.restful.utils import SafeObject
 
+from flow import FlowConstants
+
 
 class FlowImage(SafeObject):
+
     def getImageUrl(self, url: str, w: Optional[int] = None, h: Optional[int] = None) -> str:
         sb = StringBuilder()
 

@@ -26,11 +26,54 @@ class Category:
     pass
 
 
+class Director:
+    pass
+
+
+class Writer:
+    pass
+
+
+class Actor:
+    pass
+
+
+class Value:
+    pass
+
+
+class Credits:
+    director: Director
+    writer: Writer
+    actor: Actor
+
+
+class StarRating:
+    value: Value
+
+
+class Date:
+    pass
+
+
+class EpisodeNum:
+    pass
+
+
+class SubTitle:
+    pass
+
+
 class Programme:
     title: Title
     desc: Desc
     category: Category
     icon: Icon
+    subTitle: NewType('sub-title', SubTitle)  # type: ignore
+    date: Date
+    starRating: NewType('star-rating', StarRating)  # type: ignore
+    episodeNum: NewType('episode-num', EpisodeNum)  # type: ignore
+    credits: Credits
 
 
 class XmlTv:
